@@ -1,0 +1,2 @@
+# Zhananbot
+这是一个基于skript和miraimc的Java版多功能机器人
