@@ -1,5 +1,7 @@
 # Zhananbot
-这是一个基于skript和miraimc的Java版多功能机器人
+这是一个基于skript和miraimc的Java版多功能机器人  
+
+## 如果大家有好功能欢迎提交issus
 
 ### 目前功能
 
