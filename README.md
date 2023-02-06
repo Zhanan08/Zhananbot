@@ -1,74 +1,78 @@
-# Zhananbot
-这是一个基于skript和miraimc的Java版多功能机器人  
+# ZhananBot-v2.0
+一个好用强大的机器人插件 
 
-## 如果大家有好功能欢迎提交issues
+## 功能介绍
+* 支持违禁词撤回（new）
+* 查询在线玩家
+* 绑定系统
+* 消息互通
+* 进出服提醒
+* 退群解绑（new）
 
-### 目前功能
-
->1.支持加群自动审批，只要玩家输入指定的答案，机器人即可自动审核通过  
->2.玩家加群后即可获得消息提醒  
->3.玩家可以在群里绑定(不绑定不允许进服)
->>用法:  
->>在群中输入#bind 你的id即可
->>例:  
->>我的id是Zhanan  在群内输入#bind Zhanan即可
->>>注意:  
->>>1.一个id和QQ号只可以绑定一次  
->>>2.绑定后会自动更改群玩家昵称为[×]xxxx  
->>>3.必须确保机器人拥有管理员权限  
-
->4.引用api,支持聊天
->>用法:  
->>在群发送“@机器人 你要说的话”即可  
->>5.支持群消息自动转发到服务器  
->>6.服务器聊天自动发送到群聊  
->>7.支持群内使用指令(如果您是管理员/群主)
+## To Do
+* 支持加群自动通过
+* 支持自动更新插件
+* 支持自动更新依赖
+* 进群欢迎
+* 群内执行指令
+* 节假日祝贺词
+* 大家可以[进群](https://qm.qq.com/cgi-bin/qm/qr?k=EMwr4Uxb2Wn1Jja4ibVhyHPqBmcW7gsH&jump_from=webapi&authKey=HL/SyJpAJ0uuskkiEhJcxZ4FlO9kK2FvRmz/sAcPkVttmwpIuuskkT9sfbeERIjLs">)积极提出好点子
 
 
 
-### 依赖下载
->1.下载skript最新版[点我下载](https://github.com/SkriptLang/Skript/releases)
->2.下载Skript-reflect[点我下载](https://github.com/TPGamesNL/skript-reflect/releases)
->3.下载skUtilities[点我下载](https://github.com/tim740/skUtilities/releases)
->4.下载skript-yaml[点我下载](https://github.com/Sashie/skript-yaml/releases)
->5.下载miraimc[点我下载](https://github.com/DreamVoid/MiraiMC/releases)
+## 依赖下载
+1. 下载skript最新版[点我下载](https://github.com/SkriptLang/Skript/releases)
+2. 下载Skript-reflect[点我下载](https://github.com/TPGamesNL/skript-reflect/releases)
+3. 下载skUtilities[点我下载](https://github.com/tim740/skUtilities/releases)
+4. 下载skript-yaml[点我下载](https://github.com/Sashie/skript-yaml/releases)
+5. 下载miraimc[点我下载](https://github.com/DreamVoid/MiraiMC/releases)
 
-### 如何使用
->1.下载上面全部插件  
->2.运行一次所有插件  
->3.找到服务器根目录下的"plugins/Skript/script",把下载到的ZhananBot.sk文件放到该文件夹里  
->4.在控制台输入'skript reload ZhananBot.sk'  
->5.运行以后会在"plugins\ZhananBot"文件夹内找到config.yml文件，双击打开，根据注释编辑即可  
->6.使用Miraimc登陆进QQ账号，<font color=red>注意:登陆账号的QQ号，应该和config文件夹内的Bot_Account保持一致</font>
+## 使用
+下载`ZhananBot.sk`本体后，下载上方所有依赖，运行服务器，使用`mirai login QQ号 QQ密码`登陆
+登陆后将`ZhananBot.sk`放入`plugins/skript/scripts`目录下，输入`skript reload ZhananBot.sk`即可加载
+之后按照下文编辑`plugins/ZhananBot`文件内的`config.yml`和`function.yml`文件
 
-### TO DO
-1.支持群服消息互通  
-2.支持群输入指令  
-3.支持#help等更多群指令  
-4.未来无限可能  
+## 文件配置
+#### config
+```yaml
+# 这里填写你的机器人QQ号
+Bot_Account: 123456789
 
----
+# 您可以在这里填写多个管理员名,用英文字符“,”分割
+Bot_Administrator: 123456789,123456789
 
-# 优化
-- ***优化了玩家进服提示语***
-- ***优化了未绑定账号踢出服务器时机器人必须在线***
-- ***优化了消息转换功能***
-<br>
+# 在这里填写您用来监听的群号,可填写多个,用英文符号“,”分割
+Bot_Group: 123456789,123456789
 
----
+# 在这里填写您希望显示的服务器名
+Bot_logotext: Minecraft
+```
 
-# 新增
-- ***新增入群审核***
-   - 进入群聊自动禁言
-   - 禁言后玩家需要加机器人为好友并输入“审核”
-   - 审核通过后会计算玩家分数
-   - 若通过自动解除禁言
-   - 反之则需要手动审核
-   - $\color{red} {注意：此功能仅为测试版,需要等待过几日的更新才可正式使用}$
-- ***新增群昵称绑定***
-  - 玩家不可更改昵称
-  - $\color{red} {注意：该功能的更多优化会在后几个版本继续迭代}$
+#### function
+```yaml
+# 违禁词自动撤回功能,默认为关闭,可自行开启,赞助地址https://afdian.net/a/yimin/plan
+Function_Check: false
 
-### 写在最后
->本作品部分代码非常冗余，欢迎大佬对代码优化方面提供建议  
->遇到问题加Q323569086
+# 是否开启强制绑定,开启后必须绑定QQ才可以入服,方便通过id查找QQ用户,默认开启
+Function_Bind: true
+
+# 是否开启群服消息互通以及玩家进出服提示
+Function_Message: true
+```
+
+## 比较
+功能|老版|新版
+:---:|:--:|:---:
+#bind-||仅支持一个群聊且无法开关|支持多个群聊并且可以开关
+#unbind-|仅支持一个群聊切玩家退群不会自动解绑|支持多个群聊且退服自动解绑
+#punbind|无此功能|-支持管理员进行手动解绑
+#list|旧版list返回格式奇丑无比不支持多个群，玩家在关闭服务器时名称依然在list列表中|支持多个群聊且更加美观，修复了关服时未退出玩家一直存在的bug
+
+## 指令
+指令名称|作用域|执行权限|描述
+:---:|:--:|:---:|:---:
+#bind <玩家游戏id>|QQ群|所有群成员|将玩家QQ与玩家ID进行绑定
+#unbind|QQ群|所有群成员|将玩家QQ与玩家ID进行解绑
+#punbind <@指定玩家>|QQ群|群主/管理员/配置文件管理员|将指定玩家QQ与玩家ID进行解绑
+#list|QQ群|所有群成员|查询服务器的玩家详情(在线人数,在线玩家)
+
